@@ -107,16 +107,6 @@ footer p {
     margin-left: 30px;
 }
 
-.gradient-text {
-    background: linear-gradient(90deg, #a4508b, #5f0a87);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    font-weight: bold;
-    font-size: 48px;
-}
-
 .centered {
     position: fixed;
     top: 50%;
