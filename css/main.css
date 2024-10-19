@@ -116,3 +116,27 @@ footer p {
     font-weight: bold;
     font-size: 48px;
 }
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#blink_text {
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+    0% { color: red; }
+    16.6% { color: orange; }
+    33.2% { color: yellow; }
+    49.8% { color: green; }
+    66.4% { color: blue; }
+    83% { color: indigo; }
+    100% { color: purple; }
+}
