@@ -1,132 +1,166 @@
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/images/forgodandcountry.png") no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(8px);
+  z-index: -1;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: monospace;
-    color: white;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+  color: rgb(0, 0, 0);
 }
 
 body {
-    font-size: 16px;
-    background-color: black;
-}
-
-footer {
-    margin-top: 60px;
-}
-
-footer p {
-    margin-top: 30px;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    text-align: center;
-}
-
-.hr1 {
-    border: 1px solid rgba(255, 255, 255, 0.75);
-}
-
-.hr2 {
-    border: 1px dashed rgba(255, 255, 255, 0.75);
-}
-
-.navbar nav ul {
-    list-style-type: none;
-    margin: 0;
-    overflow: hidden;
-    padding: 10px;
-}
-
-.navbar nav li {
-    float: left;
-}
-
-.navbar nav li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 10px;
-}
-
-.right {
-    float: right;
+  font-size: 16px;
+  background-color: black;
 }
 
 .content {
-    padding: 0px 5%;
+  padding: 0px 5%;
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
 }
 
+/* Title and main text styling */
 .title {
-    font-size: 32px;
-    margin-top: 45px;
-    padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-left: 20px;
+  font-size: 70px;
+  margin-top: 45px;
+  padding-bottom: 20px;
 }
 
 .title a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .main {
-    margin-bottom: -15px;
-    padding: 40px 0px;
+  margin-bottom: -15px;
+  padding: 40px 0px;
 }
 
 .main p {
-    margin-top: 22.5px;
+  margin-top: 22.5px;
 }
 
 .main ul {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .main ul li {
-    margin-top: 10px;
-    margin-left: 30px;
+  margin-top: 10px;
+  margin-left: 30px;
 }
 
-.no-decor {
-    text-decoration: none;
+/* Title image styling */
+.title-img {
+  margin-bottom: -15px;
+  margin-right: -10px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+/* Services section styling */
+.services ul {
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
+/* Centered element styling */
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.name-section {
+  display: flex;
+  align-items: center;
 }
 
 .title-img {
-    margin-bottom: -15px;
-    margin-right: -10px;
-    border-radius: 50%;
+  margin-right: 10px; /* Adjusts spacing between the image and the "alice" text */
 }
 
-.icon {
-    width: 30px;
-    height: 30px;
-    margin-left: -10px;
-    margin-right: 20px;
-    margin-bottom: -5px;
+.name-link {
+  margin-right: 5px; /* Adjusts spacing between "alice" text and AMD icon */
+  margin-top: 20px;
 }
 
-.services ul {
-    margin-top: 20px;
-    margin-left: 30px;
+/* AMD icon with tooltip */
+.amd-icon {
+  position: relative;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
-.centered {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.amd-icon::after {
+  content: "CPU: Ryzen 7 5700X\A GPU: RX 6700 XT\A Certified AMD fangirl"; /* Using \A for line breaks */
+  position: absolute;
+  bottom: 120%; /* Position above the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  white-space: pre; /* Ensures line breaks are rendered */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  width: max-content;
+  max-width: 150px;
 }
 
-#blink_text {
-    animation-name: blink;
-    animation-duration: 2s;
-    animation-timing-function: ease-in;
-    animation-iteration-count: infinite;
+.amd-icon:hover::after {
+  opacity: 1;
+  visibility: visible;
 }
 
-@keyframes blink {
-    0% { color: red; }
-    16.6% { color: orange; }
-    33.2% { color: yellow; }
-    49.8% { color: green; }
-    66.4% { color: blue; }
-    83% { color: indigo; }
-    100% { color: purple; }
+.icon-container {
+  display: flex;
+  gap: 20px;
+  margin-left: 10px;
+  margin-top: 500px; /* Add margin-top for spacing from the hr */
+}
+
+/* Individual icon styling and hover effects */
+.icon span {
+  display: inline-block;
+  transition: transform 0.3s;
+}
+
+.icon i {
+  font-size: 3rem;
+  color: rgba(13, 13, 14, 0.588);
+  transition: color 0.3s;
+}
+
+.icon:hover span {
+  transform: scale(1.2);
+}
+
+.icon:hover i {
+  color: rgb(0, 0, 0);
+}
+
+.centered-text {
+  text-shadow: 4px 4px 10px rgba(255, 255, 255, 0.7);
+  z-index: 1;
+  text-align: center; /* Center text within the div */
+  margin-top: 20px; /* Add spacing from title section */
 }
