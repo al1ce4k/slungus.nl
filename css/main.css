@@ -19,7 +19,7 @@
 }
 
 body {
-  font-size: 20px;
+  font-size: 16px;
   background-color: black;
   display: flex;
   flex-direction: column;
@@ -115,7 +115,7 @@ body {
 }
 
 .amd-icon::after {
-  content: "CPU: Ryzen 7 5700X\A GPU: RX 6700 XT\A Certified AMD fangirl"; /* Using \A for line breaks */
+  content: "CPU: Ryzen 7 5700X\A GPU: RX 6700 XT"; /* Using \A for line breaks */
   position: absolute;
   bottom: 120%; /* Position above the icon */
   left: 50%;
