@@ -110,7 +110,7 @@ body {
 }
 
 .amd-icon::after {
-  content: "CPU: Ryzen 7 5700X\A GPU: RX 6700 XT\A Certified AMD fangirl";
+  content: "CPU: Ryzen 7 5700X\A GPU: RX 6700 XT";
   position: absolute;
   bottom: 120%;
   left: 50%;
