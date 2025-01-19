@@ -1,0 +1,13 @@
+.flash {
+    animation: flash-white 1s steps(1, end) infinite;
+    /* display: inline-block; */
+  }
+  
+  @keyframes flash-white {
+    0% {
+      color: initial; /* or your desired default color if it's not black */
+    }
+    50% {
+      color: white;
+    }
+  }
