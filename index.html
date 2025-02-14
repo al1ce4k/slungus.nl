@@ -20,8 +20,8 @@
     <div class="content">
         <section class="title">
             <div class="name-section">
-                <img class="title-img" src="images/hi.jpg" width="100px" />
-                <a href="https://slungus.nl" class="name-link">alice</a>
+                <img id="discord-avatar" src="" width="50px" style="border-radius: 50%; margin-right: 10px;" alt="Discord Avatar" />
+                <a href="https://slungus.nl" class="name-link">alice4k</a>
                 <i class="bi bi-amd amd-icon" style="font-size: 2rem;"></i>
             </div>
         </section>
@@ -45,4 +45,29 @@
             <span><i class="bi bi-envelope-at"></i></span>
         </a>
     </footer>
+
+    <script>
+        async function getAvatar() {
+            try {
+                const response = await fetch('https://slungus-nl-nodejs.onrender.com/'); // Replace with your Render URL
+                const data = await response.json();
+
+                if (data.avatarURL) {
+                    document.getElementById('discord-avatar').src = data.avatarURL;
+                } else {
+                    console.error('Avatar URL not found in response');
+                }
+            } catch (error) {
+                console.error('Error fetching avatar:', error);
+            }
+        }
+
+        // Get the avatar when the page loads
+        getAvatar();
+
+        // Optionally, update the avatar periodically (e.g., every 5 minutes)
+        setInterval(getAvatar, 300000); // 300000 milliseconds = 5 minutes
+    </script>
 </body>
+
+</html>
