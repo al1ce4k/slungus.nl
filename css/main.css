@@ -179,7 +179,7 @@ body {
 
 .fade-in {
     opacity: 0; /* Start invisible */
-    animation: fadeIn 1s ease-in-out forwards; /* Apply animation */
+    animation: fadeIn 3s ease-in-out forwards; /* Apply animation */
 }
 
 @keyframes fadeIn {
