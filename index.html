@@ -1,90 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alice</title>
     <meta content="slungus" property="og:title" />
     <meta content="https://slungus.nl" property="og:url" />
-
-    <!-- Favicon and Embed Image (Dynamically set) -->
-    <link rel="icon" id="favicon" type="image/x-icon" href="" />
-    <meta content="" property="og:image" id="embed-image" />
-
+    <link rel="icon" id="favicon" type="image/x-icon" href="cat_pfp.jpg" />
+    <meta content="https://slungus.nl/cat_pfp.jpg" property="og:image" id="embed-image" />
     <meta content="#000000" data-react-helmet="true" name="theme-color" />
     <title>alice</title>
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
-
 <body>
-    <div class="background"></div>
-    <div class="content">
-        <section class="title">
-            <div class="name-section">
-                <img id="discord-avatar" src="" width="100px" style="border-radius: 50%; margin-right: 10px;"
-                    alt="?" />
-                <a href="https://slungus.nl" class="name-link">alice4k</a>
-                <i class="bi bi-amd amd-icon" style="font-size: 2rem;"></i>
-            </div>
-        </section>
-        <br>
-        <section class="main">
-            <div class="centered-text">
-                <div class="fade-in-container">
-                    <p class="fade-in" style="font-size: 52px; margin-top: 10px; white-space: nowrap;">i wake up</h1>
-                    <div class="emoji-row fade-in">
-                        <span style="font-size: 52px;">♻️</span>
-                        <span style="font-size: 52px;">🐈</span>
-                    </div>
-                    <p class="fade-in" style="font-size: 52px; margin-top: 10px; white-space: nowrap;">theres another
-                        psyop</p>
-                </div>
-                <p>i like <a href="https://rpcs3.net/"> ps3 emulation </a></p>
-                <p>Artisan Hien - 800 dpi - 52cm/360</p>
-            </div>
-        </section>
+    <div class="background">
+        <img src="pepe.jpg" alt="Background">
     </div>
 
-    <footer class="icon-container">
-        <a href="https://x.com/slungus_online" target="_blank" class="icon">
-            <span><i class="bi bi-twitter"></i></span>
-        </a>
-        <a href="https://discordapp.com/users/1222833777047502942" target="_blank" class="icon">
-            <span><i class="bi bi-discord"></i></span>
-        </a>
-        <a href="mailto:alice@slungus.online" target="_blank" class="icon">
-            <span><i class="bi bi-envelope-at"></i></span>
-        </a>
-    </footer>
+    <div class="profile-card">
+        <div class="profile-header">
+            <img src="cat_pfp.jpg" class="profile-pic" alt="Profile Picture">
+            <div class="profile-info">
+                <h1>Alice<span class="icons">✨⭐</span></h1>
+                <p>800 dpi, 52cm/360, artisan hien</p>
+                <p class="joined"></p>
+            </div>
+        </div>
 
-    <script>
-        async function getAvatar() {
-            try {
-                const response = await fetch('https://slungus-nl-nodejs.onrender.com/'); // Replace with your Render URL
-                const data = await response.json();
+        <div class="bio">
+            <p>I'm a dumbass developer and i like competitive shooters.</p>
+        </div>
 
-                if (data.avatarURL) {
-                    const avatarURL = data.avatarURL; // Get the avatar URL
-                    document.getElementById('discord-avatar').src = avatarURL;
-                    document.getElementById('favicon').href = avatarURL; // Set favicon
-                    document.getElementById('embed-image').content = avatarURL; // Set embed image
-                } else {
-                    console.error('Avatar URL not found in response');
-                }
-            } catch (error) {
-                console.error('Error fetching avatar:', error);
-            }
-        }
+        <div class="social-links">
+            <a href="https://github.com/" class="social-icon"><i class="bi bi-github"></i></a>
+            <a href="https://x.com/slungus_online" class="social-icon"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://steamcommunity.com/id/azijnwater" class="social-icon"><i class="bi bi-steam"></i></a>
+            <a href="https://discordapp.com/users/1222833777047502942" class="social-icon discord-icon" onclick="copyToClipboard(event)">
+    <i class="bi bi-discord"></i>
+    <span class="discord-tooltip">slungus.online</span>
+</a>
 
-        // Get the avatar when the page loads
-        getAvatar();
+            
+<div class="eth-container">
+    <svg class="eth-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 879.4">
+        <path d="m269.9 325.2-269.9 122.7 269.9 159.6 270-159.6z" opacity=".6"/>
+        <path d="m0.1 447.8 269.9 159.6v-607.4z" opacity=".45"/>
+        <path d="m270 0v607.4l269.9-159.6z" opacity=".8"/>
+        <path d="m0 499 269.9 380.4v-220.9z" opacity=".45"/>
+        <path d="m269.9 658.5v220.9l270.1-380.4z" opacity=".8"/>
+    </svg>
+    <span class="eth-address">Copy Address</span> <!-- Replace with actual address -->
+</div>
 
-        // Optionally, update the avatar periodically (e.g., every 5 minutes)
-        setInterval(getAvatar, 300000); // 300000 milliseconds = 5 minutes
-    </script>
+        </div>
+
+        <div class="footer">
+            <p>🌍 (✿◠ᴗ◠*)ꕤ*.ﾟ o block </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
-
 </html>
