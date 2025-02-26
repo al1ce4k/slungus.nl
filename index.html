@@ -55,5 +55,53 @@
     </div>
 
     <script src="script.js"></script>
+    <script type="module">
+        // Import Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
+    
+        // Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyBrqvkmChXDfAOlNoESYFB1qMGIzhrVGAs",
+            authDomain: "visitcounter-e62ac.firebaseapp.com",
+            projectId: "visitcounter-e62ac",
+            storageBucket: "visitcounter-e62ac.firebasestorage.app",
+            messagingSenderId: "616649343256",
+            appId: "1:616649343256:web:717eb75d2264c5922ede6d",
+            measurementId: "G-VPDCQMJS49"
+        };
+    
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        // Function to update visit count
+        async function updateVisitCounter() {
+            const counterRef = doc(db, "visitCounter", "counter");
+    
+            try {
+                const counterSnap = await getDoc(counterRef);
+    
+                if (counterSnap.exists()) {
+                    // Increment visit count
+                    await updateDoc(counterRef, {
+                        visits: increment(1)
+                    });
+                } else {
+                    // Create counter if it doesn't exist
+                    await setDoc(counterRef, { visits: 1 });
+                }
+    
+                // Get updated count
+                const updatedCounterSnap = await getDoc(counterRef);
+                document.getElementById("visitCount").innerText = updatedCounterSnap.data().visits;
+            } catch (error) {
+                console.error("Error updating visit counter:", error);
+            }
+        }
+    
+        // Run function on page load
+        updateVisitCounter();
+    </script    
 </body>
 </html>
