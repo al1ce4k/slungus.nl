@@ -185,36 +185,32 @@ body {
     }
 }
 
-/* Ethereum Icon - Positioned in Bottom Left */
 .eth-container {
     position: absolute;
     bottom: 15px;
     left: 15px;
     display: flex;
     align-items: center;
-    gap: 10px; /* Space between icon and address */
+    gap: 10px; 
     cursor: pointer;
 }
 
-/* Ethereum Icon Styling */
 .eth-icon {
     width: 32px;
     height: 32px;
     fill: white;
     transition: transform 0.3s, filter 0.3s;
-    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8)); /* Subtle glow */
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8)); 
 }
 
-/* Hover effect: Glow and Slight Enlargement */
 .eth-container:hover .eth-icon {
     transform: scale(1.2);
     filter: drop-shadow(0 0 12px rgba(255, 255, 255, 1));
 }
 
-/* Ethereum Address - Hidden by Default */
 .eth-address {
     opacity: 0;
-    transform: translateX(-10px); /* Start position (hidden) */
+    transform: translateX(-10px);
     background: rgba(0, 0, 0, 0.8);
     color: white;
     padding: 6px 12px;
@@ -224,19 +220,17 @@ body {
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-/* Show address on hover */
+
 .eth-container:hover .eth-address {
     opacity: 1;
-    transform: translateX(0); /* Slide out */
+    transform: translateX(0); 
 }
 
-/* Discord icon container */
 .discord-icon {
     position: relative;
     cursor: pointer;
 }
 
-/* Tooltip styling */
 .discord-tooltip {
     position: absolute;
     bottom: 140%;
@@ -254,7 +248,6 @@ body {
     pointer-events: none;
 }
 
-/* Show tooltip on hover */
 .discord-icon:hover .discord-tooltip {
     opacity: 1;
     visibility: visible;
