@@ -56,3 +56,48 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+// Import and initialize Firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+import { getFirestore, doc, getDoc, updateDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBrqvkmChXDfAOlNoESYFB1qMGIzhrVGAs",
+  authDomain: "visitcounter-e62ac.firebaseapp.com",
+  projectId: "visitcounter-e62ac",
+  storageBucket: "visitcounter-e62ac.firebasestorage.app",
+  messagingSenderId: "616649343256",
+  appId: "1:616649343256:web:717eb75d2264c5922ede6d",
+  measurementId: "G-VPDCQMJS49"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+async function updateVisitCount() {
+  const counterRef = doc(db, "visitCounter", "counter");
+
+  try {
+    const counterSnap = await getDoc(counterRef);
+
+    if (counterSnap.exists()) {
+      let visits = counterSnap.data().visits + 1;
+
+      // Update Firebase
+      await updateDoc(counterRef, { visits });
+
+      // Update HTML
+      document.getElementById("visit-counter").innerText = "Visits: " + visits;
+    } else {
+      // Create a new counter if it doesn't exist
+      await setDoc(counterRef, { visits: 1 });
+      document.getElementById("visit-counter").innerText = "Visits: 1";
+    }
+  } catch (error) {
+    console.error("Error updating visit counter:", error);
+  }
+}
+
+// Run on page load
+document.addEventListener("DOMContentLoaded", updateVisitCount);

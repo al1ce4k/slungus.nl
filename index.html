@@ -50,17 +50,15 @@
         </div>
 
         <div class="footer">
-            <p>🌍 (✿◠ᴗ◠*)ꕤ*.ﾟ o block | <span id="visit-counter">Visits: Loading...</span></p>
-        </div>        
+            <p>🌍 (✿◠ᴗ◠*)ꕤ*.ﾟ o block | <span id="visit-counter">Visits: :3</span></p>
+        </div>             
     </div>
 
     <script src="script.js"></script>
     <script type="module">
-        // Import Firebase
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
     
-        // Firebase config
         const firebaseConfig = {
             apiKey: "AIzaSyBrqvkmChXDfAOlNoESYFB1qMGIzhrVGAs",
             authDomain: "visitcounter-e62ac.firebaseapp.com",
@@ -71,37 +69,43 @@
             measurementId: "G-VPDCQMJS49"
         };
     
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
+        const visitCounterElement = document.getElementById("visit-counter");
     
-        // Function to update visit count
         async function updateVisitCounter() {
             const counterRef = doc(db, "visitCounter", "counter");
     
             try {
+                // Show the last known value instantly
                 const counterSnap = await getDoc(counterRef);
-    
                 if (counterSnap.exists()) {
-                    // Increment visit count
-                    await updateDoc(counterRef, {
-                        visits: increment(1)
-                    });
+                    let previousCount = counterSnap.data().visits;
+                    visitCounterElement.innerText = `Visits: ${previousCount}`;
                 } else {
-                    // Create counter if it doesn't exist
-                    await setDoc(counterRef, { visits: 1 });
+                    visitCounterElement.innerText = "Visits: 0";
                 }
     
-                // Get updated count
+                // Increment the visit count in the background
+                await updateDoc(counterRef, { visits: increment(1) });
+    
+                // Fetch and update the new value
                 const updatedCounterSnap = await getDoc(counterRef);
-                document.getElementById("visitCount").innerText = updatedCounterSnap.data().visits;
+                visitCounterElement.innerText = `Visits: ${updatedCounterSnap.data().visits}`;
             } catch (error) {
                 console.error("Error updating visit counter:", error);
+                visitCounterElement.innerText = "Visits: Error";
             }
         }
     
-        // Run function on page load
-        updateVisitCounter();
-    </script    
+        document.addEventListener("DOMContentLoaded", function () {
+            if (visitCounterElement) {
+                visitCounterElement.innerText = "Visits: :3";
+                updateVisitCounter(); // Start updating
+            } else {
+                console.error("Visit counter element not found!");
+            }
+        });
+    </script>    
 </body>
 </html>
