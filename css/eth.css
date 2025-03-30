@@ -1,0 +1,40 @@
+.eth-container {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    cursor: pointer;
+}
+
+.eth-icon {
+    width: 32px;
+    height: 32px;
+    fill: white;
+    transition: transform 0.3s, filter 0.3s;
+    filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.8)); 
+}
+
+.eth-container:hover .eth-icon {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 1));
+}
+
+.eth-address {
+    opacity: 0;
+    transform: translateX(-10px);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+
+.eth-container:hover .eth-address {
+    opacity: 1;
+    transform: translateX(0); 
+}
