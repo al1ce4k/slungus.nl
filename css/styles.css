@@ -37,3 +37,26 @@ body {
     font-size: 14px;
     opacity: 0.8;
 }
+
+.quote-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  perspective: 1000px;
+}
+
+.quote-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  perspective: 1000px;
+}
+
+#quote {
+  font-size: 1.1rem;
+  color: #fff;
+  transition: transform 0.6s ease, opacity 0.4s ease;
+
+}
